@@ -36,14 +36,14 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 
    - Crie um novo trabalho de ML automatizado com as seguintes configurações, usando Avançar conforme necessário para avançar na interface do usuário:
 
-   - Configurações básicas :
+ - Configurações básicas:
 
    - Nome do trabalho : O campo Nome do trabalho já deve estar preenchido previamente com um nome exclusivo. Mantenha-o como está.
    - Novo nome do experimento :mslearn-bike-rental
    - Descrição : Aprendizado de máquina automatizado para previsão de aluguel de bicicletas
    - Tags : nenhuma
    - Tipo de tarefa e dados :
-
+- Próximo passo:
    - Selecione o tipo de tarefa : Regressão
    - Selecionar conjunto de dados : Crie um novo conjunto de dados com as seguintes configurações:
    - Tipo de dados :
