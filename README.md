@@ -20,7 +20,6 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
      - Região: Escolha a mesma região dos seus dados.
    - Clique em **Revisar + Criar** e confirme.
 
----
 
 ## 2. **Criar e Configurar um Experimento**
 
