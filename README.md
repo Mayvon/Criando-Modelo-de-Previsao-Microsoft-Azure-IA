@@ -11,7 +11,9 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 
 2. **Crie um Workspace do Azure ML:**
    - No menu esquerdo, clique em **Criar um recurso**.
-   - Pesquise por **Machine Learning** e selecione **Machine Learning Workspace**.
+   - Pesquise por **Machine Learning** e selecione e crie o **Workspace Machine Learning**.
+   - Selecione a Assinatura
+   - Crie um Grupo de Recursos
    - Preencha os detalhes:
      - Nome: `workspace-ml-predicao`.
      - Grupo de Recursos: Crie um novo ou escolha um existente.
@@ -26,63 +28,79 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
    - Após a criação, acesse o workspace e clique em **Azure Machine Learning Studio** para abrir o estúdio no navegador.
 
 2. **Prepare os dados:**
-   - Vá para a aba **Datasets** e clique em **+ Criar Dataset**.
-   - Escolha o tipo de dados (ex: JSON, CSV).
-   - Faça o upload do arquivo de entrada (o JSON fornecido) ou conecte a um armazenamento existente.
-   - Verifique e registre o dataset com um nome, como `dados-previsao`.
+   - Vá para a aba **Dados** e clique em **+ Criar**.
+   - Insira Nome e Descrição nos respectivos campos e escolha o tipo de dados (ex: urifile, mltable, Tabular, Arquivo, JSON, CSV), e clique em **Avançar**
+   - Faça o upload do arquivo de entrada (o JSON fornecido), conecte a um armazenamento existente, ou forneça um link da Web.
+   - Verifique e registre o Dado com um nome, como `bike-rentals`.
 
-3. **Crie um pipeline de treinamento:**
-   - Na aba **Designer**, clique em **+ Criar Pipeline**.
-   - Arraste o dataset (`dados-previsao`) para a tela.
-   - Adicione módulos como:
-     - **Dividir Dados** para separar treinamento e teste.
-     - **Treinar Modelo** (escolha um algoritmo, ex: Regressão Linear ou Florestas Aleatórias).
-     - **Avaliar Modelo** para validar os resultados.
-   - Conecte os módulos na sequência lógica e clique em **Executar**.
-   - Nomeie o experimento e aguarde a execução.
+3. **Use aprendizado de máquina automatizado para treinar um modelo:**
+   No Azure Machine Learning Studio , visualize a página ML automatizado (em Criação ).
+
+   - Crie um novo trabalho de ML automatizado com as seguintes configurações, usando Avançar conforme necessário para avançar na interface do usuário:
+
+   - Configurações básicas :
+
+   Nome do trabalho : O campo Nome do trabalho já deve estar preenchido previamente com um nome exclusivo. Mantenha-o como está.
+   Novo nome do experimento :mslearn-bike-rental
+   Descrição : Aprendizado de máquina automatizado para previsão de aluguel de bicicletas
+   Tags : nenhuma
+   Tipo de tarefa e dados :
+   
+   Selecione o tipo de tarefa : Regressão
+   Selecionar conjunto de dados : Crie um novo conjunto de dados com as seguintes configurações:
+   Tipo de dados :
+   Nome :bike-rentals
+   Descrição :Historic bike rental data
+   Tipo : Tabela (mltable)
+   Fonte de dados :
+   Selecione De arquivos locais
+   Tipo de armazenamento de destino :
+   Tipo de armazenamento de dados : Azure Blob Storage
+   Nome : workspaceblobstore
+   Seleção de MLtable :
+   Pasta de upload : Baixe e descompacte a pasta que contém os  arquivos.
+   Selecione Criar . Após a criação do conjunto de dados, selecione o conjunto de dados bike-rentals para continuar a enviar o trabalho de ML automatizado.
 
 ---
 
-## 3. **Registrar o Modelo Treinado**
+## 3. **Avaliar Modelo**
 
-1. **Acesse os resultados do experimento:**
-   - Após o término do pipeline, clique no módulo de treinamento e baixe ou registre o modelo gerado.
+1. Na guia Visão geral do trabalho de aprendizado de máquina automatizado, observe o melhor resumo do modelo.
 
-2. **Registre o modelo:**
-   - Vá para a aba **Modelos** no menu lateral.
-   - Clique em **+ Registrar Modelo**.
-   - Selecione o modelo gerado e preencha os detalhes:
-     - Nome do modelo: `modelo-previsao`.
-     - Versão: `1`.
+2. Selecione o texto em Nome do algoritmo para o melhor modelo para visualizar seus detalhes.
+
+3. Selecione a guia Métricas e selecione os gráficos residuais e prediction_true, caso ainda não estejam selecionados.
 
 ---
 
 ## 4. **Implantar o Modelo**
 
 1. **Crie um endpoint:**
-   - Na aba **Implantações**, clique em **+ Criar Endpoint**.
+   - Na aba **Implantações**, clique em **+ Criar Ponto de Extremidade**.
    - Escolha **Ação de Inferência em Tempo Real**.
    - Preencha os detalhes:
-     - Nome: `previsao-endpoint`.
-     - Modelo: Selecione `modelo-previsao`.
-     - Tipo de compute: Escolha **Aci (Azure Container Instances)** para testes simples.
-
-2. **Configurar o script de inferência:**
-   - O portal cria automaticamente um script baseado no modelo registrado. Verifique e ajuste se necessário.
-
-3. **Implante:**
-   - Clique em **Implantar** e aguarde até que o endpoint seja criado.
+      Máquina virtual : Standard_DS3_v2
+      Contagem de instâncias : 3
+      Ponto final : Novo
+      Nome do ponto de extremidade : deixe o padrão ou certifique-se de que seja globalmente exclusivo
+      Nome da implantação : Deixe o padrão
+      Inferência de coleta de dados : Desativado
+      Modelo de pacote : Desativado
+   
+2. **Implante:**
+   - Aguarde até que o status Deploy mude para Succeeded . Isso pode levar de 5 a 10 minutos.
 
 ---
 
 ## 5. **Testar o Endpoint**
 
-1. **Obtenha a URL de Inferência:**
-   - Após a implantação, clique no endpoint criado.
-   - Copie a **URL de Inferência** e a **Chave de Acesso**.
+- No Azure Machine Learning Studio, no menu à esquerda, selecione Endpoints e abra o endpoint em tempo real predict-rentals .
 
-2. **Teste pelo portal:**
-   - Na aba **Testar**, insira os dados de entrada:
+- Na página do endpoint em tempo real do predict-rentals , visualize a guia Teste .
+
+- No painel Dados de entrada para testar o ponto de extremidade , substitua o JSON do modelo pelos seguintes dados de entrada:
+
+
      ```json
      {
        "input_data": {
@@ -127,5 +145,4 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 
 ---
 
-Com isso, você terá configurado, treinado e implantado um modelo de previsão diretamente pelo Portal do Azure!
-```
+
