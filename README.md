@@ -138,3 +138,7 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
    - Para melhorar o desempenho, atualize o modelo treinando-o com novos dados e publique uma nova versão.
 
 
+
+## Limpar
+O serviço web que você criou está hospedado em uma *Azure Container Instance*. Se você não pretende usa-lo, você pode excluir o **ponto de extremidade** para evitar acumular uso desnecessário do Azure.
+No Azure Machine Learning Studio, acesse a guia **ponto de extremidade**  e em seguida, selecione 'Delete' e confirme que deseja exclui-lo.
