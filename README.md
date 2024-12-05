@@ -137,6 +137,4 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 2. **Atualize o modelo:**
    - Para melhorar o desempenho, atualize o modelo treinando-o com novos dados e publique uma nova versão.
 
----
-
 
