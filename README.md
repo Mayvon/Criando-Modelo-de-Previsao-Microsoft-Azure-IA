@@ -38,26 +38,26 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 
    - Configurações básicas :
 
-      - Nome do trabalho : O campo Nome do trabalho já deve estar preenchido previamente com um nome exclusivo. Mantenha-o como está.
-      - Novo nome do experimento :mslearn-bike-rental
-      - Descrição : Aprendizado de máquina automatizado para previsão de aluguel de bicicletas
-      - Tags : nenhuma
-      - Tipo de tarefa e dados :
-   
-     - Selecione o tipo de tarefa : Regressão
-     - Selecionar conjunto de dados : Crie um novo conjunto de dados com as seguintes configurações:
-     - Tipo de dados :
-     - Nome :bike-rentals
-     - Descrição :Historic bike rental data
-     - Tipo : Tabela (mltable)
-     - Fonte de dados :
-     - Selecione De arquivos locais
-     - Tipo de armazenamento de destino :
-     - Tipo de armazenamento de dados : Azure Blob Storage
-     - Nome : workspaceblobstore
-     - Seleção de MLtable :
-     - Pasta de upload : Baixe e descompacte a pasta que contém os  arquivos.
-     - Selecione Criar . Após a criação do conjunto de dados, selecione o conjunto de dados bike-rentals para continuar a enviar o trabalho de ML automatizado.
+   - Nome do trabalho : O campo Nome do trabalho já deve estar preenchido previamente com um nome exclusivo. Mantenha-o como está.
+   - Novo nome do experimento :mslearn-bike-rental
+   - Descrição : Aprendizado de máquina automatizado para previsão de aluguel de bicicletas
+   - Tags : nenhuma
+   - Tipo de tarefa e dados :
+
+  - Selecione o tipo de tarefa : Regressão
+  - Selecionar conjunto de dados : Crie um novo conjunto de dados com as seguintes configurações:
+  - Tipo de dados :
+  - Nome :bike-rentals
+  - Descrição :Historic bike rental data
+  - Tipo : Tabela (mltable)
+  - Fonte de dados :
+  - Selecione De arquivos locais
+  - Tipo de armazenamento de destino :
+  - Tipo de armazenamento de dados : Azure Blob Storage
+  - Nome : workspaceblobstore
+  - Seleção de MLtable :
+  - Pasta de upload : Baixe e descompacte a pasta que contém os  arquivos.
+  - Selecione Criar . Após a criação do conjunto de dados, selecione o conjunto de dados bike-rentals para continuar a enviar o trabalho de ML automatizado.
 
 
 ## 3. **Avaliar Modelo**
