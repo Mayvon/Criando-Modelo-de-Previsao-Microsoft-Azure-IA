@@ -1,4 +1,4 @@
-# Criando um Modelo de Previsão no Azure Machine Learning pelo Portal Au ure
+# Criando um Modelo de Previsão no Azure Machine Learning pelo Portal Azure
 
 Este guia descreve como criar, treinar e implantar um modelo de previsão diretamente pelo Portal do Azure utilizando **Azure Machine Learning**, realizado como exercício parte do DIO Bootcamp Microsoft IA-900.
 
