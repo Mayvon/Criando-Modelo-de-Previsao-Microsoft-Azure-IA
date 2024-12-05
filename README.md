@@ -38,26 +38,26 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 
    - Configurações básicas :
 
-   Nome do trabalho : O campo Nome do trabalho já deve estar preenchido previamente com um nome exclusivo. Mantenha-o como está.
-   Novo nome do experimento :mslearn-bike-rental
-   Descrição : Aprendizado de máquina automatizado para previsão de aluguel de bicicletas
-   Tags : nenhuma
-   Tipo de tarefa e dados :
+      - Nome do trabalho : O campo Nome do trabalho já deve estar preenchido previamente com um nome exclusivo. Mantenha-o como está.
+      - Novo nome do experimento :mslearn-bike-rental
+      - Descrição : Aprendizado de máquina automatizado para previsão de aluguel de bicicletas
+      - Tags : nenhuma
+      - Tipo de tarefa e dados :
    
-   Selecione o tipo de tarefa : Regressão
-   Selecionar conjunto de dados : Crie um novo conjunto de dados com as seguintes configurações:
-   Tipo de dados :
-   Nome :bike-rentals
-   Descrição :Historic bike rental data
-   Tipo : Tabela (mltable)
-   Fonte de dados :
-   Selecione De arquivos locais
-   Tipo de armazenamento de destino :
-   Tipo de armazenamento de dados : Azure Blob Storage
-   Nome : workspaceblobstore
-   Seleção de MLtable :
-   Pasta de upload : Baixe e descompacte a pasta que contém os  arquivos.
-   Selecione Criar . Após a criação do conjunto de dados, selecione o conjunto de dados bike-rentals para continuar a enviar o trabalho de ML automatizado.
+     - Selecione o tipo de tarefa : Regressão
+     - Selecionar conjunto de dados : Crie um novo conjunto de dados com as seguintes configurações:
+     - Tipo de dados :
+     - Nome :bike-rentals
+     - Descrição :Historic bike rental data
+     - Tipo : Tabela (mltable)
+     - Fonte de dados :
+     - Selecione De arquivos locais
+     - Tipo de armazenamento de destino :
+     - Tipo de armazenamento de dados : Azure Blob Storage
+     - Nome : workspaceblobstore
+     - Seleção de MLtable :
+     - Pasta de upload : Baixe e descompacte a pasta que contém os  arquivos.
+     - Selecione Criar . Após a criação do conjunto de dados, selecione o conjunto de dados bike-rentals para continuar a enviar o trabalho de ML automatizado.
 
 
 ## 3. **Avaliar Modelo**
@@ -72,16 +72,16 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 ## 4. **Implantar o Modelo**
 
 1. **Crie um endpoint:**
-   - Na aba **Implantações**, clique em **+ Criar Ponto de Extremidade**.
-   - Escolha **Ação de Inferência em Tempo Real**.
-   - Preencha os detalhes:
-      Máquina virtual : Standard_DS3_v2
-      Contagem de instâncias : 3
-      Ponto final : Novo
-      Nome do ponto de extremidade : deixe o padrão ou certifique-se de que seja globalmente exclusivo
-      Nome da implantação : Deixe o padrão
-      Inferência de coleta de dados : Desativado
-      Modelo de pacote : Desativado
+      - Na aba **Implantações**, clique em **+ Criar Ponto de Extremidade**.
+      - Escolha **Ação de Inferência em Tempo Real**.
+      - Preencha os detalhes:
+         Máquina virtual : Standard_DS3_v2
+         Contagem de instâncias : 3
+         Ponto final : Novo
+         Nome do ponto de extremidade : deixe o padrão ou certifique-se de que seja globalmente exclusivo
+         Nome da implantação : Deixe o padrão
+         Inferência de coleta de dados : Desativado
+         Modelo de pacote : Desativado
    
 2. **Implante:**
    - Aguarde até que o status Deploy mude para Succeeded . Isso pode levar de 5 a 10 minutos.
