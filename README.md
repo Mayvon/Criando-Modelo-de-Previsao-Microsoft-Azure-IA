@@ -2,7 +2,6 @@
 
 Este guia descreve como criar, treinar e implantar um modelo de previsão diretamente pelo Portal do Azure utilizando **Azure Machine Learning**, realizado como exercício parte do DIO Bootcamp Microsoft IA-900.
 
----
 
 ## 1. **Configurar o Workspace do Azure ML**
 
@@ -60,7 +59,6 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
    Pasta de upload : Baixe e descompacte a pasta que contém os  arquivos.
    Selecione Criar . Após a criação do conjunto de dados, selecione o conjunto de dados bike-rentals para continuar a enviar o trabalho de ML automatizado.
 
----
 
 ## 3. **Avaliar Modelo**
 
@@ -70,7 +68,6 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 
 3. Selecione a guia Métricas e selecione os gráficos residuais e prediction_true, caso ainda não estejam selecionados.
 
----
 
 ## 4. **Implantar o Modelo**
 
@@ -89,7 +86,6 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 2. **Implante:**
    - Aguarde até que o status Deploy mude para Succeeded . Isso pode levar de 5 a 10 minutos.
 
----
 
 ## 5. **Testar o Endpoint**
 
@@ -132,7 +128,6 @@ Este guia descreve como criar, treinar e implantar um modelo de previsão direta
 4. **Teste em sua aplicação:**
    - Use a URL e a chave para realizar requisições via **cURL**, Postman ou outro cliente HTTP.
 
----
 
 ## 6. **Monitore e Atualize**
 
